@@ -18,6 +18,7 @@ our @EXPORT = qw( prolog_list
 		  prolog_atom
 		  prolog_string
 		  prolog_chain
+		  prolog_opaque
 		);
 
 use Language::Prolog::Types::Abstract;
@@ -67,6 +68,8 @@ sub prolog_nil () { $factory->new_nil }
 sub prolog_atom ($ ) { "$_[0]" }
 
 sub prolog_string ($ ) { prolog_list(unpack('C*', $_[0])) }
+
+sub prolog_opaque ($ ) { $factory->new_opaque(@_) }
 
 sub prolog_chain {
     my $functor=shift;

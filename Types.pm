@@ -1,6 +1,6 @@
 package Language::Prolog::Types;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use strict;
 use warnings;
@@ -27,7 +27,8 @@ our %EXPORT_TAGS = ( is => [qw( prolog_is_term
 				   prolog_atom
 				   prolog_nil
 				   prolog_string
-				   prolog_chain )],
+				   prolog_chain
+				   prolog_opaque )],
 		     util => [qw( prolog_list2perl_list
 				  prolog_list2perl_string )],
 		     short => [qw( isL
@@ -254,6 +255,12 @@ it should be noted that
 returns
 
   $term
+
+=item C<prolog_opaque($object)>
+
+creates a proxy opaque object to tell Perl to pass the object to
+Prolog as an opaque reference that can not be directly used from Prolog
+but just passed back to Perl in callbacks.
 
 =back
 

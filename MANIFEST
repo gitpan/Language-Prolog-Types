@@ -1,6 +1,8 @@
 Abstract/Abstract.pm
 Abstract/Makefile.PL
 Changes
+Converter/Converter.pm
+Converter/Makefile.PL
 Factory/Factory.pm
 Factory/Makefile.PL
 Internal/Internal.pm

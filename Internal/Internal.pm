@@ -41,6 +41,10 @@ sub new_variable {
     Language::Prolog::Types::Internal::variable->new(@_)
 }
 
+sub new_opaque {
+    shift;
+    Language::Prolog::Types::Internal::opaque->new(@_)
+}
 
 # internal types implementation:
 
@@ -199,6 +203,24 @@ sub new {
 }
 
 sub name { $ {$_[0]} }
+
+
+package Language::Prolog::Types::Internal::opaque;
+our @ISA=qw(Language::Prolog::Types::Opaque);
+
+sub new {
+    my ($class, $ref)=@_;
+    my $self=\$ref;
+    bless $self, $class;
+    return $self
+}
+
+sub opaque_reference {
+    my $self=shift;
+    return $$self;
+}
+
+sub opaque_class { ref shift }
 
 
 1;

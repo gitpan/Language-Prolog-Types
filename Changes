@@ -1,5 +1,12 @@
 Revision history for Perl extension Language::Prolog::Types.
 
+0.06  Thu Jan 16 2003
+	- opaque objects support added to converter
+	- Language::XSB::Converter moved to
+          Language::Prolog::Types::Converter so it can also be used from
+	  other modules like Language::Prolog::Yaswi
+	- added new Opaque type
+
 0.05  Sun Jan 12 2003
 	- quoting added for functors names
 	- bug in 'Factory' corrected: prolog_chain was returning

@@ -500,10 +500,82 @@ our @ISA=qw(Language::Prolog::Types::Term);
 
 sub id { '*unknow*' }
 
+=item Language::Prolog::Types::Opaque
+
+This class should be only used by Prolog <-> Perl interface authors.
+
+Usually Perl objects are converted to Prolog structures when passed to
+a Prolog implementation. This class defines a proxy that stops the
+conversion to happen and just pass a reference to the Perl object.
+
+Opaque objects should not be returned from Prolog interfaces, they
+should only be used to indicate to the Prolog implementations to not
+convert Perl data to Prolog. When returning from Prolog the original
+object should be directly returned to improve usability.
+
+It should be noted that not all prolog implementations would support
+this type.
+
+
+=head3 Inherits:
+
+=over 4
+
+=item L<Language::Prolog::Types::Term>
+
+=back
+
+=head3 Methods:
+
+=item C<$this-E<gt>opaque_reference>
+
+returns the object that it shields from prolog
+
+=item C<$this->E<gt>opaque_comment>
+
+returns comment string that will show in Prolog representation
+
+=item C<$this->E<gt>opaque_class>
+
+returns object class as should been seen from Prolog side
+
 =back
 
 =cut
 
+package Language::Prolog::Types::Opaque;
+our @ISA=qw(Language::Prolog::Types::Term);
+use Carp;
+
+sub opaque_reference { croak "unimplemented virtual method" }
+
+sub opaque_comment { return '-' }
+
+sub opaque_class { return ref shift }
+
+
+=item Language::Prolog::Types::Opaque::Auto
+
+Not really an abstract class but a simple implementation to be used as
+a base class to provide automatic opacity to objects.
+
+So, objects of any class that has it as an ancestor will be passed to
+prolog as a reference.
+
+=cut
+
+
+package Language::Prolog::Types::Opaque::Auto;
+our @ISA=qw(Language::Prolog::Types::Opaque);
+
+sub opaque_reference { return shift }
+
+
+
+
+=back
+
+=cut
 
 1; # module ok
 
