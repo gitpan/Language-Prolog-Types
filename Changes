@@ -1,5 +1,9 @@
 Revision history for Perl extension Language::Prolog::Types.
 
+0.08  Wed Jan 22 2003
+	- Language::Prolog::Types::Internal::opaque opaque_class
+	  method now returns the correct class
+
 0.07  Mon Jan 20 2003
 	- prolog_is_list added to export list in Abstract module
 
@@ -16,7 +20,7 @@ Revision history for Perl extension Language::Prolog::Types.
 	  wrong value sometimes when called in scalar context
 
 0.04
-	- require only perl 5.6
+	- requires only perl 5.6
 	- Some Makefile.PL files corrected
 
 0.03  Thu Nov 28 2002

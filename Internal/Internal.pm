@@ -1,6 +1,6 @@
 package Language::Prolog::Types::Internal;
 
-our $VERSION=0.02;
+our $VERSION=0.03;
 
 use strict;
 use warnings;
@@ -220,7 +220,7 @@ sub opaque_reference {
     return $$self;
 }
 
-sub opaque_class { ref shift }
+sub opaque_class { ref shift->opaque_reference }
 
 
 1;
