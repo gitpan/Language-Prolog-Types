@@ -1,10 +1,19 @@
 Revision history for Perl extension Language::Prolog::Types.
 
-0.03  Thu Nov 28 20002
-       - Cleaned up for CPAN distribution
+0.05  Sun Jan 12 2003
+	- quoting added for functors names
+	- bug in 'Factory' corrected: prolog_chain was returning
+	  wrong value sometimes when called in scalar context
+
+0.04
+	- require only perl 5.6
+	- Some Makefile.PL files corrected
+
+0.03  Thu Nov 28 2002
+	- Cleaned up for CPAN distribution
 
 0.02  -
-       -
+	-
 
 0.01  Fri Nov 22 13:05:57 2002
 	- original version; created by h2xs 1.22 with options

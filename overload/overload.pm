@@ -27,10 +27,17 @@ use overload
 
 
 package Language::Prolog::Types::Functor;
+
+sub _escape($) {
+    my $n=shift;
+    return $n if $n=~/^[a-z][A-Za-z0-9_]*$/;
+    return "'$n'"
+}
+
 use overload
     '""' => sub {
 	my $self=shift;
-	$self->functor().'(' . join(", ", $self->fargs) . ')'
+	_escape($self->functor()).'(' . join(", ", $self->fargs) . ')'
     },
     '0+' => sub { $_[0]->arity },
     'bool' => sub { 1 },

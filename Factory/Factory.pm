@@ -1,6 +1,6 @@
 package Language::Prolog::Types::Factory;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use strict;
 use warnings;
@@ -69,10 +69,13 @@ sub prolog_atom ($ ) { "$_[0]" }
 sub prolog_string ($ ) { prolog_list(unpack('C*', $_[0])) }
 
 sub prolog_chain {
-  my $functor=shift;
-  return @_ if (@_<=1);
-  my $first=shift;
-  prolog_functor($functor, $first, prolog_chain($functor, @_))
+    my $functor=shift;
+    if (@_<=1) {
+	return $_[0] if @_;
+	return ();
+    }
+    my $first=shift;
+    prolog_functor($functor, $first, prolog_chain($functor, @_))
 }
 
 *prolog_var=\&prolog_variable;
