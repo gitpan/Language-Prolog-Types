@@ -1,6 +1,6 @@
 package Language::Prolog::Types::Abstract;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 NAME
 
@@ -56,6 +56,7 @@ our @EXPORT=qw( prolog_is_term
 		prolog_is_atom
 		prolog_is_nil
 		prolog_is_functor
+		prolog_is_list
 		prolog_is_list_or_nil
 		prolog_is_variable
 		prolog_is_var

@@ -1,5 +1,8 @@
 Revision history for Perl extension Language::Prolog::Types.
 
+0.07  Mon Jan 20 2003
+	- prolog_is_list added to export list in Abstract module
+
 0.06  Thu Jan 16 2003
 	- opaque objects support added to converter
 	- Language::XSB::Converter moved to
